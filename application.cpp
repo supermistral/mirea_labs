@@ -134,13 +134,14 @@ void Application::methodSignal(std::string& msg) {
     msg = " Text: " + this->getName() + " -> " + msg;
 };
 
-void Application::methodHandler(Base* obj, std::string msg) {
-    std::cout << "\nSignal to" << obj->getName() + msg;
+void Application::methodHandler(std::string msg) {
+    std::cout << "\nSignal to " << this->getName() + msg;
 };
 
 void Application::fillConnections() {
     std::string numConnection, senderName, handlerName;
     Base* sender = nullptr;
+    Base* handler = nullptr;
     
     std::cout << "\nSet connects";
     for (;;) {
@@ -150,10 +151,11 @@ void Application::fillConnections() {
 
         std::cin >> senderName >> handlerName;
         sender = this->getObject(senderName);
+        handler = this->getObject(handlerName);
         sender->setConnect(
             this->getMethodSignal(sender->getNumber()),
-            this->getObject(handlerName),
-            this->getMethodHandler(sender->getNumber())
+            handler,
+            this->getMethodHandler(handler->getNumber())
         );
 
         std::cout << "\n" << numConnection << " " << senderName << " " << handlerName;

@@ -7,7 +7,7 @@ public:
     using Base::Base;
 
     void methodSignal(std::string&);
-    void methodHandler(Base*, std::string);
+    void methodHandler(std::string);
 };
 
 #endif

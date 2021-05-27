@@ -87,7 +87,7 @@ int Base::getReady() {
 }; 
 
 void Base::printModelTree(int offset) { 
-    std::cout << std::setw(name.size() + 4 * offset) << name;
+    std::cout << std::setw(4 * (offset + 1)) << "" << name;
     
     for (size_t i = 0; i < listChildren.size(); ++i) { 
         std::cout << "\n";
@@ -166,7 +166,7 @@ void Base::emitSignal(SignalType signal, std::string& action) {
     (this->*signal)(action);
     for (Connection* conn : connections) {
         if (conn->signal == signal) {
-            (this->*(conn->handler))(conn->objHandler, action);
+            (conn->objHandler->*(conn->handler))(action);
         }
     }
 };

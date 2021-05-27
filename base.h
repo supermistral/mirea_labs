@@ -7,7 +7,7 @@
 class Base;
 
 typedef void (Base::*SignalType)(std::string&);
-typedef void (Base::*HandlerType)(Base*, std::string);
+typedef void (Base::*HandlerType)(std::string);
 
 
 class Base {

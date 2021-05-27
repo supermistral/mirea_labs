@@ -18,7 +18,7 @@ public:
     void coordRouting();
 
     void methodSignal(std::string&);
-    void methodHandler(Base*, std::string);
+    void methodHandler(std::string);
     void fillConnections();
     void runSignals();
     SignalType getMethodSignal(int);

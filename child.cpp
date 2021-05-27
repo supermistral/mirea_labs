@@ -6,6 +6,6 @@ void Child::methodSignal(std::string& msg) {
     msg = " Text: " + this->getName() + " -> " + msg;
 };
 
-void Child::methodHandler(Base* obj, std::string msg) {
-    std::cout << "\nSignal to" << obj->getName() + msg;
+void Child::methodHandler(std::string msg) {
+    std::cout << "\nSignal to " << this->getName() + msg;
 };
